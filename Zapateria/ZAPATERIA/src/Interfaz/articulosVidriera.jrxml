@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="articulosVidriera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="044b9d9d-ed50-4300-9697-d3799b113cef">
+	<property name="ireport.zoom" value="1.210000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="5"/>
+	<parameter name="razonSocial" class="java.lang.String"/>
+	<parameter name="email" class="java.lang.String"/>
+	<parameter name="cuil" class="java.lang.String"/>
+	<parameter name="direccion" class="java.lang.String"/>
+	<parameter name="telefono" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     articulo."codbarra" AS articulo_codbarra,
+     articulo."color" AS articulo_color,
+     articulo."color2" AS articulo_color2,
+     articulo."envidriera" AS articulo_envidriera,
+     articulo."nombre" AS articulo_nombre,
+     articulo."precioventa" AS articulo_precioventa,
+     articulo."sexo" AS articulo_sexo,
+     articulo."stock" AS articulo_stock,
+     articulo."talle" AS articulo_talle,
+     articulo."unacategoria_nrocateg" AS articulo_unacategoria_nrocateg,
+     articulo."unamarca_nombremarca" AS articulo_unamarca_nombremarca
+FROM
+     "public"."articulo" articulo
+
+order by unamarca_nombremarca]]>
+	</queryString>
+	<field name="articulo_codbarra" class="java.lang.String"/>
+	<field name="articulo_color" class="java.lang.String"/>
+	<field name="articulo_color2" class="java.lang.String"/>
+	<field name="articulo_envidriera" class="java.lang.Boolean"/>
+	<field name="articulo_nombre" class="java.lang.String"/>
+	<field name="articulo_precioventa" class="java.lang.Double"/>
+	<field name="articulo_sexo" class="java.lang.String"/>
+	<field name="articulo_stock" class="java.lang.Integer"/>
+	<field name="articulo_talle" class="java.lang.Integer"/>
+	<field name="articulo_unacategoria_nrocateg" class="java.lang.Integer"/>
+	<field name="articulo_unamarca_nombremarca" class="java.lang.String"/>
+	<sortField name="articulo_codbarra"/>
+	<variable name="articulo_sexo_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{articulo_sexo}]]></variableExpression>
+	</variable>
+	<variable name="articulo_nombre_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{articulo_nombre}]]></variableExpression>
+	</variable>
+	<group name="marca">
+		<groupExpression><![CDATA[$F{articulo_unamarca_nombremarca}]]></groupExpression>
+		<groupHeader>
+			<band height="44">
+				<line>
+					<reportElement x="0" y="20" width="555" height="1" uuid="5a48f22f-f63c-4291-9234-1c1595747857"/>
+				</line>
+				<rectangle>
+					<reportElement x="0" y="1" width="555" height="20" backcolor="#CCCCFF" uuid="38130273-836e-45ea-8aac-5611f6c4e6ba"/>
+				</rectangle>
+				<textField>
+					<reportElement x="0" y="0" width="100" height="20" uuid="75ccadb0-348d-4763-8ef5-915669e059f6"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{articulo_unamarca_nombremarca}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="21" width="100" height="23" backcolor="#F0F0F0" uuid="6eb13e52-d711-424a-943c-eec6e6c4b805"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Cod. Brra]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="415" y="21" width="140" height="23" backcolor="#F0F0F0" uuid="ce7ad8b6-88c5-4bc3-9e1c-a75922770e3e"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Colores]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="200" y="21" width="215" height="23" backcolor="#F0F0F0" uuid="b4a101a2-4c03-4dce-9fcf-6bd02d9816e0"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Stock]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="100" y="21" width="100" height="23" backcolor="#F0F0F0" uuid="0eeb8e74-64ce-4425-87f7-40ef8ba0cdcd"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Nombre]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="158" splitType="Stretch">
+			<staticText>
+				<reportElement x="135" y="109" width="363" height="49" uuid="24f42fa4-d730-40c7-96d1-48ca5e4d7bf3"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Articulos en Vidriera]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="126" y="0" width="390" height="82" uuid="d7ea8c49-799f-41d7-b203-bf27e7eea6d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="30"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{razonSocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="81" width="100" height="20" uuid="bbba5629-a7e3-426c-a9a7-cc5d82b5a78f"/>
+				<textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="100" height="20" uuid="f4fedc94-35e5-44a2-b2fb-8d0a7bf5ce78"/>
+				<textFieldExpression><![CDATA[$P{cuil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="119" width="100" height="20" uuid="5ccc54f8-8df8-437a-b761-3ef6c55b4057"/>
+				<textFieldExpression><![CDATA[$P{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="138" width="100" height="20" uuid="17d8abd4-52d8-4147-8b1a-802021141991"/>
+				<textFieldExpression><![CDATA[$P{telefono}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="126" height="82" uuid="55658c10-e3b9-4fb5-943c-ea47b13ad8b3"/>
+				<imageExpression><![CDATA["C:\\fotos.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="4" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" backcolor="#999999" uuid="335cfa23-35f9-4a11-bce2-d4cfae23728a"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{articulo_codbarra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="446bdf91-15ad-438c-a193-2485b32ca3ef"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{articulo_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="215" height="20" uuid="a9f56506-868f-40ff-83b0-91c7aa22f58b"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{articulo_stock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="498" y="0" width="57" height="20" uuid="d8b3d7f5-0f35-4f32-b31a-04d0340ddbde"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{articulo_color2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="0" width="83" height="20" uuid="dd29c25a-740a-4ccf-9418-dbf5c8999cfe"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{articulo_color}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="111" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

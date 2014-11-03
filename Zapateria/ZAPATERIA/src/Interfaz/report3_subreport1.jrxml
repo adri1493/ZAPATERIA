@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c016a983-d5c6-419c-a0af-aa0132f3a8e2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from Empresa]]>
+	</queryString>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="razonsocial" class="java.lang.String"/>
+	<field name="cuil" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="foto" class="java.lang.Object"/>
+	<title>
+		<band height="177" splitType="Stretch">
+			<textField>
+				<reportElement x="401" y="94" width="150" height="20" uuid="945698b6-030e-41b4-af02-14909f8a230f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{cuil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="114" width="150" height="20" uuid="3a2345e4-32ce-49d8-a01b-a1968e1758ff"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="211" height="91" uuid="99f503f4-9c16-4e56-a001-c06371fe0041"/>
+				<textElement textAlignment="Right">
+					<font size="30"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razonsocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="154" width="150" height="20" uuid="59e2e4b1-a9b9-4cea-ae51-6b493a515ef8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="134" width="150" height="20" uuid="735aeaa6-35a1-4b4d-a178-8591c9457891"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="190" height="174" uuid="fc218048-ce88-469e-90fe-0899b8e1e59b"/>
+			</image>
+		</band>
+	</title>
+</jasperReport>

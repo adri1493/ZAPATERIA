@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="08e91795-5853-40d0-80e9-4c780776d7be">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Adrian\\Documents\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Usuario" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * FROM Articulo]]>
+	</queryString>
+	<field name="codbarra" class="java.lang.String"/>
+	<field name="color" class="java.lang.String"/>
+	<field name="color2" class="java.lang.String"/>
+	<field name="envidriera" class="java.lang.Boolean"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="precioventa" class="java.lang.Double"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="stock" class="java.lang.Integer"/>
+	<field name="talle" class="java.lang.Integer"/>
+	<field name="unacategoria_nrocateg" class="java.lang.Integer"/>
+	<field name="unamarca_nombremarca" class="java.lang.String"/>
+	<group name="marca">
+		<groupExpression><![CDATA[$F{unamarca_nombremarca}]]></groupExpression>
+		<groupHeader>
+			<band height="46">
+				<staticText>
+					<reportElement x="262" y="26" width="100" height="20" uuid="b64d6409-6305-4830-80f1-bd7414c1fb2c"/>
+					<text><![CDATA[Nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="29" y="25" width="100" height="18" uuid="a03a9507-a45c-4191-b4c7-423074b9c272"/>
+					<text><![CDATA[Codigo de Barra]]></text>
+				</staticText>
+				<line>
+					<reportElement x="-12" y="44" width="567" height="1" uuid="1a902680-d5c7-4bb5-b930-b42ab4cc2d65"/>
+				</line>
+				<rectangle>
+					<reportElement x="-4" y="0" width="577" height="25" backcolor="#CCCCFF" uuid="fbae44d1-4f73-4372-ae0f-0a991d5a11ba"/>
+				</rectangle>
+				<textField>
+					<reportElement x="-4" y="0" width="366" height="25" uuid="774c3bcc-19c7-4b47-a6c8-814faac75d20"/>
+					<textElement>
+						<font size="14" isBold="true" isItalic="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{unamarca_nombremarca}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="117" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="0" width="100" height="11" uuid="94121dc3-9a6d-49ba-95aa-3db6b4fd3b96"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="11" width="555" height="106" uuid="6b2c3d8b-f81a-4e9e-a6bd-f2e25496b380"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report3_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="30">
+			<line>
+				<reportElement x="242" y="-21" width="1" height="50" uuid="ecedf1bc-15d7-4951-9815-d99b083c98a3"/>
+			</line>
+			<line>
+				<reportElement x="-12" y="29" width="567" height="1" uuid="4eba4b24-e3e2-44d4-86a3-a154a2fc6b38"/>
+			</line>
+			<textField>
+				<reportElement x="29" y="0" width="213" height="29" uuid="4606ce37-31eb-435b-b989-0309419d9fab"/>
+				<textFieldExpression><![CDATA[$F{codbarra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="0" width="293" height="29" uuid="ec151765-7796-4fb7-b7d3-7339f626f886"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22">
+			<textField>
+				<reportElement x="433" y="2" width="80" height="20" uuid="de6908a1-d50f-4d0a-b26f-29fae3c8814a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="2" width="40" height="20" uuid="dd695267-f751-4e1c-abe8-ab17d2ebed6c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="aa12a3a3-455a-4b12-8840-d1ded3b44063"/>
+				<textFieldExpression><![CDATA[$P{Usuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

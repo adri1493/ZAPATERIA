@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">1234</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ZAPATERIA</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.default_schema">public</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+        <property name="connection.pool_size">1</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="javax.persistence.validation.mode">none</property>
+        <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+        <mapping class="project1.Empresa"/>
+        <mapping class="project1.Caja"/>
+        <mapping class="project1.Categoria"/>
+        <mapping class="project1.Compra"/>
+        <mapping class="project1.CierreCaja"/>
+        <mapping class="project1.Comision"/>
+        <mapping class="project1.DetalleCompra"/>
+        <mapping class="project1.DetalleVenta"/>
+        <mapping class="project1.Empleado"/>
+        <mapping class="project1.Marca"/>
+        <mapping class="project1.MovimientoCaja"/>
+        <mapping class="project1.PagoCompra"/>
+        <mapping class="project1.Pago"/>
+        <mapping class="project1.Persona"/>
+        <mapping class="project1.Proveedor"/>
+        <mapping class="project1.Rol"/>
+        <mapping class="project1.TipoPago"/>
+        <mapping class="project1.Turno"/>
+        <mapping class="project1.Venta"/>
+        <mapping class="project1.Articulo"/>
+        <mapping class="project1.Auditoria"/>
+    </session-factory>
+</hibernate-configuration>
